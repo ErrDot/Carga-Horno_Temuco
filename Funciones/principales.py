@@ -127,7 +127,7 @@ def ingresar_datos(ruta_archivo):
         df['SP TEMP ETAPA 4 EN HORNO'] = df['SP TEMP ETAPA 4 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 5 EN HORNO'] = df['SP TEMP ETAPA 5 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 6 EN HORNO'] = df['SP TEMP ETAPA 6 EN HORNO'].str.replace(',', '.').astype(float) / 1
-
+        
         #PASAR LOS VALORES A INT
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].astype(int)
 
