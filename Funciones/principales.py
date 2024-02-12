@@ -116,13 +116,25 @@ def ingresar_datos(ruta_archivo):
 
 
         # VALORES INT
-        df['Presion diferencial'] = df['Presion diferencial'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 3 EN HORNO'] = df['SP TEMP ETAPA 3 EN HORNO'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 4 EN HORNO'] = df['SP TEMP ETAPA 4 EN HORNO'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 5 EN HORNO'] = df['SP TEMP ETAPA 5 EN HORNO'].str.replace(',', '.').astype(float) / 1
+        df['SP TEMP ETAPA 6 EN HORNO'] = df['SP TEMP ETAPA 6 EN HORNO'].str.replace(',', '.').astype(float) / 1
+
+
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
       
         #PASAR LOS VALORES A INT
         df['Presion diferencial'] = df['Presion diferencial'].astype(int)
 
-        df['SET POINT DE TEMPERATURA ETAPA 1'] = df['SET POINT DE TEMPERATURA ETAPA 1'].astype(int)
+        df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].astype(int)
+        df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].astype(int)
+        df['SP TEMP ETAPA 3 EN HORNO'] = df['SP TEMP ETAPA 3 EN HORNO'].astype(int)
+        df['SP TEMP ETAPA 4 EN HORNO'] = df['SP TEMP ETAPA 4 EN HORNO'].astype(int)
+        df['SP TEMP ETAPA 5 EN HORNO'] = df['SP TEMP ETAPA 5 EN HORNO'].astype(int)
+        df['SP TEMP ETAPA 6 EN HORNO'] = df['SP TEMP ETAPA 6 EN HORNO'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 2'] = df['SET POINT DE TEMPERATURA ETAPA 2'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 3'] = df['SET POINT DE TEMPERATURA ETAPA 3'].astype(int)
         df['SET POINT ETAPA 4'] = df['SET POINT ETAPA 4'].astype(int)
