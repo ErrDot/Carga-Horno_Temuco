@@ -116,6 +116,11 @@ def ingresar_datos(ruta_archivo):
 
 
         # VALORES INT
+        df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
+
+        df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].str.replace(',', '.').astype(float) / 1
+        df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].str.replace(',', '.').astype(float) / 1
+      
         df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 3 EN HORNO'] = df['SP TEMP ETAPA 3 EN HORNO'].str.replace(',', '.').astype(float) / 1
@@ -123,14 +128,11 @@ def ingresar_datos(ruta_archivo):
         df['SP TEMP ETAPA 5 EN HORNO'] = df['SP TEMP ETAPA 5 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 6 EN HORNO'] = df['SP TEMP ETAPA 6 EN HORNO'].str.replace(',', '.').astype(float) / 1
 
-
-        df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
-
-        df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].str.replace(',', '.').astype(float) / 1
-        df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].str.replace(',', '.').astype(float) / 1
-      
         #PASAR LOS VALORES A INT
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].astype(int)
+
+        df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].astype(int)
+        df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].astype(int)
 
         df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].astype(int)
         df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].astype(int)
