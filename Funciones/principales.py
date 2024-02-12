@@ -125,6 +125,9 @@ def ingresar_datos(ruta_archivo):
 
 
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
+
+        df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].str.replace(',', '.').astype(float) / 1
+        df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].str.replace(',', '.').astype(float) / 1
       
         #PASAR LOS VALORES A INT
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].astype(int)
