@@ -85,51 +85,53 @@ def ingresar_datos(ruta_archivo):
     
     try:
         # VALORES DECIMALES
-        df['T° Sobre Grano'] = df['T° Sobre Grano'].str.replace(',', '.').astype(float)
-        df['T° Sobre Tela'] = df['T° Sobre Tela'].str.replace(',', '.').astype(float)
-        df['T° Bajo Tela 2'] = df['T° Bajo Tela 2'].str.replace(',', '.').astype(float)
-        df['T° AMBIENTE'] = df['T° AMBIENTE'].str.replace(',', '.').astype(float)
-        df['%HR Sobre tela'] = df['%HR Sobre tela'].str.replace(',', '.').astype(float)
+        
+        df['TEMP. SONDA'] = df['TEMP. SONDA'].str.replace(',', '.').astype(float)
+        df['TEMP. SOBRE FIJA'] = df['TEMP. SOBRE FIJA'].str.replace(',', '.').astype(float)
+        df['TEMP. BAJO TELA 1'] = df['TEMP. BAJO TELA 1'].str.replace(',', '.').astype(float)
+        df['TEMP. BAJO TELA 2'] = df['TEMP. BAJO TELA 2'].str.replace(',', '.').astype(float)
+
+        df['HUMEDAD SOBRE TELA EN HORNO'] = df['HUMEDAD SOBRE TELA EN HORNO'].str.replace(',', '.').astype(float)
+
+        
+
+        df['PRESION DIFERENCIAL HORNO'] = df['PRESION DIFERENCIAL HORNO'].str.replace(',', '.').astype(float)
+
+        df['CONTADOR DE GAS'] = df['CONTADOR DE GAS'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 1'] = df['CONTADOR DE GAS ETAPA 1'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 2'] = df['CONTADOR DE GAS ETAPA 2'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 3'] = df['CONTADOR DE GAS ETAPA 3'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 4'] = df['CONTADOR DE GAS ETAPA 4'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 5'] = df['CONTADOR DE GAS ETAPA 5'].str.replace(',', '.').astype(float)
+        df['CONTADOR DE GAS ETAPA 6'] = df['CONTADOR DE GAS ETAPA 6'].str.replace(',', '.').astype(float)
+
+        df['TIEMPO DE SECADO EN MIN'] = df['TIEMPO DE SECADO EN MIN'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 1'] = df['TIEMPO TRANSCURRIDO EN ETAPA 1'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 2'] = df['TIEMPO TRANSCURRIDO EN ETAPA 2'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 3'] = df['TIEMPO TRANSCURRIDO EN ETAPA 3'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 4'] = df['TIEMPO TRANSCURRIDO EN ETAPA 4'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 5'] = df['TIEMPO TRANSCURRIDO EN ETAPA 5'].str.replace(',', '.').astype(float)
+        df['TIEMPO TRANSCURRIDO EN ETAPA 6'] = df['TIEMPO TRANSCURRIDO EN ETAPA 6'].str.replace(',', '.').astype(float)
+
+
+
         # VALORES INT
         df['Presion diferencial'] = df['Presion diferencial'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 1'] = df['GAS ETAPA 1'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 2'] = df['GAS ETAPA 2'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 3'] = df['GAS ETAPA 3'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 4'] = df['GAS ETAPA 4'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 5'] = df['GAS ETAPA 5'].str.replace(',', '.').astype(float) / 1
-        df['GAS ETAPA 6'] = df['GAS ETAPA 6'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 1'] = df['TIEMPO BARRA ETAPA 1'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 2'] = df['TIEMPO BARRA ETAPA 2'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 3'] = df['TIEMPO BARRA ETAPA 3'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 4'] = df['TIEMPO BARRA ETAPA 4'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 5'] = df['TIEMPO BARRA ETAPA 5'].str.replace(',', '.').astype(float) / 1
-        df['TIEMPO BARRA ETAPA 6'] = df['TIEMPO BARRA ETAPA 6'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT DE TEMPERATURA ETAPA 1'] = df['SET POINT DE TEMPERATURA ETAPA 1'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT DE TEMPERATURA ETAPA 2'] = df['SET POINT DE TEMPERATURA ETAPA 2'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT DE TEMPERATURA ETAPA 3'] = df['SET POINT DE TEMPERATURA ETAPA 3'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT ETAPA 4'] = df['SET POINT ETAPA 4'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT DE TEMPERATURA ETAPA 5'] = df['SET POINT DE TEMPERATURA ETAPA 5'].str.replace(',', '.').astype(float) / 1
-        df['SET POINT DE TEMPERATURA ETAPA 6'] = df['SET POINT DE TEMPERATURA ETAPA 6'].str.replace(',', '.').astype(float) / 1
+        df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
+      
         #PASAR LOS VALORES A INT
         df['Presion diferencial'] = df['Presion diferencial'].astype(int)
-        df['GAS ETAPA 1'] = df['GAS ETAPA 1'].astype(int)
-        df['GAS ETAPA 2'] = df['GAS ETAPA 2'].astype(int)
-        df['GAS ETAPA 3'] = df['GAS ETAPA 3'].astype(int)
-        df['GAS ETAPA 4'] = df['GAS ETAPA 4'].astype(int)
-        df['GAS ETAPA 5'] = df['GAS ETAPA 5'].astype(int)
-        df['GAS ETAPA 6'] = df['GAS ETAPA 6'].astype(int)
-        df['TIEMPO BARRA ETAPA 1'] = df['TIEMPO BARRA ETAPA 1'].astype(int)
-        df['TIEMPO BARRA ETAPA 2'] = df['TIEMPO BARRA ETAPA 2'].astype(int)
-        df['TIEMPO BARRA ETAPA 3'] = df['TIEMPO BARRA ETAPA 3'].astype(int)
-        df['TIEMPO BARRA ETAPA 4'] = df['TIEMPO BARRA ETAPA 4'].astype(int)
-        df['TIEMPO BARRA ETAPA 5'] = df['TIEMPO BARRA ETAPA 5'].astype(int)
-        df['TIEMPO BARRA ETAPA 6'] = df['TIEMPO BARRA ETAPA 6'].astype(int)
+
         df['SET POINT DE TEMPERATURA ETAPA 1'] = df['SET POINT DE TEMPERATURA ETAPA 1'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 2'] = df['SET POINT DE TEMPERATURA ETAPA 2'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 3'] = df['SET POINT DE TEMPERATURA ETAPA 3'].astype(int)
         df['SET POINT ETAPA 4'] = df['SET POINT ETAPA 4'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 5'] = df['SET POINT DE TEMPERATURA ETAPA 5'].astype(int)
         df['SET POINT DE TEMPERATURA ETAPA 6'] = df['SET POINT DE TEMPERATURA ETAPA 6'].astype(int)
+
+
+
+
     except Exception as ex:
         print(f"{fecha_hora}: Ha ocurrido el siguiente error: {ex}")
         return 
@@ -171,20 +173,21 @@ def ingresar_datos(ruta_archivo):
             if fecha != ultimoRegistro and fecha > ultimoRegistro:
                 try:
                     # SENTENCIA SQL
-                    sql = f'''INSERT INTO HornoMiagTTE (Fecha, Batch, Variedad, TSobreGrano, TSobreTela,TBajoTela2,
-                                TAmbiente, HRSobreTela, PAperturaDamper, PresionDiferencial, GasTotal, GasEtapa1,
+                    sql = f'''INSERT INTO HornoMiagTCO(fecha, batch, variedad, etapaProceso, tSonda, tSobreFija, tBajoTela, tBajoTela2
+                                HRSobreTela, Celosia, valorSalidaCelosia, PresionDiferencial, GasTotal, GasEtapa1, ------ falta cammbiar los datos de la bdd
                                 GasEtapa2, GasEtapa3, GasEtapa4, GasEtapa5, GasEtapa6, TiempoTotal, TiempoBarraE1,
                                 TiempoBarraE2, TiempoBarraE3, TiempoBarraE4, TiempoBarraE5, TiempoBarraE6, SPTemp1,
-                                SPTemp2, SPTemp3, SPTemp4, SPTemp5, SPTemp6, BotonStart)
-                                VALUES ('{v_fecha}', '{row['Numero de Batch']}', '{row['Variedad']}', '{row['T° Sobre Grano']}', 
-                                    '{row['T° Sobre Tela']}','{row['T° Bajo Tela 2']}', '{row['T° AMBIENTE']}', '{row['%HR Sobre tela']}', 
-                                    '{row['Porcentaje de apertura de DAMPER']}', '{row['Presion diferencial']}', '{row['GAS TOTAL']}', 
-                                    '{row['GAS ETAPA 1']}', '{row['GAS ETAPA 2']}','{row['GAS ETAPA 3']}','{row['GAS ETAPA 4']}', 
-                                    '{row['GAS ETAPA 5']}', '{row['GAS ETAPA 6']}', '{row['TIEMPO TOTAL']}', '{row['TIEMPO BARRA ETAPA 1']}',
-                                    '{row['TIEMPO BARRA ETAPA 2']}', '{row['TIEMPO BARRA ETAPA 3']}', '{row['TIEMPO BARRA ETAPA 4']}', 
-                                    '{row['TIEMPO BARRA ETAPA 5']}','{row['TIEMPO BARRA ETAPA 6']}', '{row['SET POINT DE TEMPERATURA ETAPA 1']}', 
-                                    '{row['SET POINT DE TEMPERATURA ETAPA 2']}','{row['SET POINT DE TEMPERATURA ETAPA 3']}', '{row['SET POINT ETAPA 4']}', 
-                                    '{row['SET POINT DE TEMPERATURA ETAPA 5']}', '{row['SET POINT DE TEMPERATURA ETAPA 6']}', '{row['Boton Start']}')'''
+                                SPTemp2, SPTemp3, SPTemp4, SPTemp5, SPTemp6)
+                                VALUES ('{v_fecha}', '{row['Numero de Batch']}', '{row['Variedad']}', '{row['ETAPA DEL PROCESO DE HORNEADO']}',
+                                    '{row['TEMP. SONDA']}','{row['TEMP. SOBRE FIJA']}', '{row['TEMP. BAJO TELA 1']}', '{row['TEMP. BAJO TELA 2']}',
+                                    '{row['HUMEDAD SOBRE TELA EN HORNO']}', '{row['POSICION MANUAL CELOCIAS']}', '{row['VALOR SALIDA 0-100% - CELOSIA']}',
+                                    '{row['PRESION DIFERENCIAL HORNO']}', '{row['CONTADOR DE GAS']}', '{row['CONTADOR DE GAS ETAPA 1']}', 
+                                    '{row['CONTADOR DE GAS ETAPA 2']}', '{row['CONTADOR DE GAS ETAPA 3']}', '{row['CONTADOR DE GAS ETAPA 4']}',
+                                    '{row['CONTADOR DE GAS ETAPA 5']}', '{row['CONTADOR DE GAS ETAPA 6']}', '{row['TIEMPO DE SECADO EN MIN']}',
+                                    '{row['TIEMPO TRANSCURRIDO EN ETAPA 1']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 2']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 3']}',
+                                    '{row['TIEMPO TRANSCURRIDO EN ETAPA 4']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 5']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 6']}',
+                                    '{row['SP TEMP ETAPA 1 EN HORNO']}', '{row['SP TEMP ETAPA 2 EN HORNO']}', '{row['SP TEMP ETAPA 3 EN HORNO']}'
+                                    '{row['SP TEMP ETAPA 4 EN HORNO']}', '{row['SP TEMP ETAPA 5 EN HORNO']}', '{row['SP TEMP ETAPA 6 EN HORNO']}')'''
                     cursor_insert.execute(sql)
                     contador += 1
                 except:
