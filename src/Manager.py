@@ -2,7 +2,7 @@ import tkinter as tk
 import sys
 from tkinter import *
 from tkinter import scrolledtext
-from Funciones.principales import conectar_bdd, main, fecha_actual, cerrar_conexion
+from Funciones.principales import main, fecha_actual, cerrar_conexion
 from Funciones.secundarias import fecha_actual, configuracion, resourcePath
 from constantes import style
 from tkinter import messagebox
@@ -22,7 +22,7 @@ class App(tk.Tk):
     ### INICIALIZACION DE APP  
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.title("Carga de datos - Horno Talagante")
+        self.title("Carga de datos - Horno Temuco")
         self.icono = tk.PhotoImage(file=resourcePath("assets/4k.gif"))
         self.iconphoto(True, self.icono)
         self.geometry("854x480")

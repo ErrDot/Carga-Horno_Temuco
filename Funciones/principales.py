@@ -85,18 +85,13 @@ def ingresar_datos(ruta_archivo):
     
     try:
         # VALORES DECIMALES
-        
         df['TEMP. SONDA'] = df['TEMP. SONDA'].str.replace(',', '.').astype(float)
         df['TEMP. SOBRE FIJA'] = df['TEMP. SOBRE FIJA'].str.replace(',', '.').astype(float)
         df['TEMP. BAJO TELA 1'] = df['TEMP. BAJO TELA 1'].str.replace(',', '.').astype(float)
         df['TEMP. BAJO TELA 2'] = df['TEMP. BAJO TELA 2'].str.replace(',', '.').astype(float)
-
         df['HUMEDAD SOBRE TELA EN HORNO'] = df['HUMEDAD SOBRE TELA EN HORNO'].str.replace(',', '.').astype(float)
-
-        
-
         df['PRESION DIFERENCIAL HORNO'] = df['PRESION DIFERENCIAL HORNO'].str.replace(',', '.').astype(float)
-
+        #### Contador de GAS
         df['CONTADOR DE GAS'] = df['CONTADOR DE GAS'].str.replace(',', '.').astype(float)
         df['CONTADOR DE GAS ETAPA 1'] = df['CONTADOR DE GAS ETAPA 1'].str.replace(',', '.').astype(float)
         df['CONTADOR DE GAS ETAPA 2'] = df['CONTADOR DE GAS ETAPA 2'].str.replace(',', '.').astype(float)
@@ -104,7 +99,7 @@ def ingresar_datos(ruta_archivo):
         df['CONTADOR DE GAS ETAPA 4'] = df['CONTADOR DE GAS ETAPA 4'].str.replace(',', '.').astype(float)
         df['CONTADOR DE GAS ETAPA 5'] = df['CONTADOR DE GAS ETAPA 5'].str.replace(',', '.').astype(float)
         df['CONTADOR DE GAS ETAPA 6'] = df['CONTADOR DE GAS ETAPA 6'].str.replace(',', '.').astype(float)
-
+        ### Tiempo
         df['TIEMPO DE SECADO EN MIN'] = df['TIEMPO DE SECADO EN MIN'].str.replace(',', '.').astype(float)
         df['TIEMPO TRANSCURRIDO EN ETAPA 1'] = df['TIEMPO TRANSCURRIDO EN ETAPA 1'].str.replace(',', '.').astype(float)
         df['TIEMPO TRANSCURRIDO EN ETAPA 2'] = df['TIEMPO TRANSCURRIDO EN ETAPA 2'].str.replace(',', '.').astype(float)
@@ -113,27 +108,20 @@ def ingresar_datos(ruta_archivo):
         df['TIEMPO TRANSCURRIDO EN ETAPA 5'] = df['TIEMPO TRANSCURRIDO EN ETAPA 5'].str.replace(',', '.').astype(float)
         df['TIEMPO TRANSCURRIDO EN ETAPA 6'] = df['TIEMPO TRANSCURRIDO EN ETAPA 6'].str.replace(',', '.').astype(float)
 
-
-
-        # VALORES INT
+        # VALORES INT/Numeric
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].str.replace(',', '.').astype(float) / 1
-
         df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].str.replace(',', '.').astype(float) / 1
         df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].str.replace(',', '.').astype(float) / 1
-      
         df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 3 EN HORNO'] = df['SP TEMP ETAPA 3 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 4 EN HORNO'] = df['SP TEMP ETAPA 4 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 5 EN HORNO'] = df['SP TEMP ETAPA 5 EN HORNO'].str.replace(',', '.').astype(float) / 1
         df['SP TEMP ETAPA 6 EN HORNO'] = df['SP TEMP ETAPA 6 EN HORNO'].str.replace(',', '.').astype(float) / 1
-        
-        #PASAR LOS VALORES A INT
+        #PASAR LOS VALORES A INT/Numeric
         df['ETAPA DEL PROCESO DE HORNEADO'] = df['ETAPA DEL PROCESO DE HORNEADO'].astype(int)
-
         df['POSICION MANUAL CELOCIAS'] = df['POSICION MANUAL CELOCIAS'].astype(int)
         df['VALOR SALIDA 0-100% - CELOSIA'] = df['VALOR SALIDA 0-100% - CELOSIA'].astype(int)
-
         df['SP TEMP ETAPA 1 EN HORNO'] = df['SP TEMP ETAPA 1 EN HORNO'].astype(int)
         df['SP TEMP ETAPA 2 EN HORNO'] = df['SP TEMP ETAPA 2 EN HORNO'].astype(int)
         df['SP TEMP ETAPA 3 EN HORNO'] = df['SP TEMP ETAPA 3 EN HORNO'].astype(int)
@@ -182,8 +170,8 @@ def ingresar_datos(ruta_archivo):
             if fecha != ultimoRegistro and fecha > ultimoRegistro:
                 try:
                     # SENTENCIA SQL
-                    sql = f'''INSERT INTO HornoMiagTCO(fecha, batch, variedad, etapaProceso, tSonda, tSobreFija, tBajoTela, tBajoTela2
-                                HRSobreTela, Celosia, valorSalidaCelosia, PresionDiferencial, GasTotal, GasEtapa1, ------ falta cammbiar los datos de la bdd
+                    sql = f'''INSERT INTO HornoMiagTCO (fecha, batch, variedad, etapaProceso, tSonda, tSobreFija, tBajoTela, tBajoTela2,
+                                HRSobreTela, Celosia, valorSalidaCelosia, PresionDiferencial, GasTotal, GasEtapa1,
                                 GasEtapa2, GasEtapa3, GasEtapa4, GasEtapa5, GasEtapa6, TiempoTotal, TiempoBarraE1,
                                 TiempoBarraE2, TiempoBarraE3, TiempoBarraE4, TiempoBarraE5, TiempoBarraE6, SPTemp1,
                                 SPTemp2, SPTemp3, SPTemp4, SPTemp5, SPTemp6)
@@ -195,7 +183,7 @@ def ingresar_datos(ruta_archivo):
                                     '{row['CONTADOR DE GAS ETAPA 5']}', '{row['CONTADOR DE GAS ETAPA 6']}', '{row['TIEMPO DE SECADO EN MIN']}',
                                     '{row['TIEMPO TRANSCURRIDO EN ETAPA 1']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 2']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 3']}',
                                     '{row['TIEMPO TRANSCURRIDO EN ETAPA 4']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 5']}', '{row['TIEMPO TRANSCURRIDO EN ETAPA 6']}',
-                                    '{row['SP TEMP ETAPA 1 EN HORNO']}', '{row['SP TEMP ETAPA 2 EN HORNO']}', '{row['SP TEMP ETAPA 3 EN HORNO']}'
+                                    '{row['SP TEMP ETAPA 1 EN HORNO']}', '{row['SP TEMP ETAPA 2 EN HORNO']}', '{row['SP TEMP ETAPA 3 EN HORNO']}',
                                     '{row['SP TEMP ETAPA 4 EN HORNO']}', '{row['SP TEMP ETAPA 5 EN HORNO']}', '{row['SP TEMP ETAPA 6 EN HORNO']}')'''
                     cursor_insert.execute(sql)
                     contador += 1
@@ -205,14 +193,12 @@ def ingresar_datos(ruta_archivo):
         cnn.commit()
         cursor_insert.close()
         cnn.close()
+        print(f"{fecha_hora}: Se han ingresado: {contador} registros")
     except TypeError:
         messagebox.showerror(message="Error en archivo, Favor informar a Depto. TI", title='ERROR')
         return
     except:
         return
-
-    print(f"{fecha_hora}: Se han ingresado: {contador} registros")
-
 
 ### FUNCIÓN PARA PARAR CERRAR CONEXION BDD
 def cerrar_conexion():
@@ -229,7 +215,7 @@ def cerrar_conexion():
 ### RECUPERAR ÚLTIMO REGISTRO BDD
 def ultimo_registro():
     cursor = cnn.cursor()
-    sql = "SELECT MAX(Fecha) FROM HornoMiagTTE"
+    sql = "SELECT MAX(Fecha) FROM HornoMiagTCO"
     cursor.execute(sql)
 
     global registro_fecha
